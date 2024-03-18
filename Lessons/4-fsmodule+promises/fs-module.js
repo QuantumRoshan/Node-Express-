@@ -42,7 +42,7 @@ readFile('./Lessons/fsmodule/p.txt','utf-8',(err,res)=>{
 
 // const readFilePromise = promisify(readFile);
 // const writeFilePromise = promisify(writeFile);
-
+ 
 function readFilesPromise(path,option){
     return new Promise((resolve,reject)=>{
         readFile(path,option,(err,data)=>{
@@ -70,7 +70,7 @@ function writeFilesPromise(path,content,flag){
 
 async function final(){
     try{
-    const firstFile= await readFilesPromise('./Lessons/fsmodule/s.txt','utf-8')
+    const firstFile= await readFilesPromise('./Lessons/fsmodule/p.txt','utf-8')
     const secondFile= await readFilesPromise('./Lessons/fsmodule/s.txt','utf-8')
     await writeFilesPromise('./Lessons/fsmodule/p+s.txt.txt',`${firstFile},${secondFile}`,{flag:'a'})
     }catch(err){
@@ -85,3 +85,22 @@ final().then((result)=>{
 }).catch(err=>{
     console.log(err);
 })
+
+
+//MORE SIMPLER
+
+// const {readFile,writeFile}=require('fs').promises
+
+
+// const start = async ()=>{
+//     try{
+//         const firstFile= await readFiles('./Lessons/fsmodule/p.txt','utf-8')
+//         const secondFile= await readFiles('./Lessons/fsmodule/s.txt','utf-8')
+//         await writeFiles('./Lessons/fsmodule/p+s.txt.txt',`${firstFile},${secondFile}`,{flag:'a'})
+//         }catch(err){
+//             console.error(err);
+//         }
+            
+// }
+
+// start()
