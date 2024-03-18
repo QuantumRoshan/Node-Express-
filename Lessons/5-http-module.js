@@ -33,3 +33,12 @@ const server=http.createServer((req,res)=>{
 server.listen(5000,()=>{
     console.log('Running');
 })
+
+
+//OR using events emitter
+
+const server2=http.createServer()
+
+server2.on('request',(req,res)=>{
+    res.end('hello world')
+}).listen(4000)
